@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App</title>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+    <div class="notes" id="app">
+        <div class="notesSidebar">
+            <button class="notesAdd" type="button">Add Note</button>
+            <div class="noteList">
+                <div class="notesListItem notesListItemSelected">
+                    <div class="notesSmallTitle">Note title</div>
+                    <div class="notesSmallBody">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos debitis nihil dicta? Nisi minus mollitia, nulla optio molestiae eum cumque ratione? Omnis dignissimos inventore modi ullam id assumenda laudantium beatae.</div>
+                    <div class="notesSmallUpdated">time</div>
+                </div>
+            </div>
+        </div>
+        <div class="notesPreview">
+            <input class="notesTitle" type="text" placeholder="Enter a title...">
+            <textarea class="notesBody">I am the notes body...</textarea>
+        </div> 
+    </div>
+    <script src="./js/main.js" type="module"></script>
+</body>
+</html>
