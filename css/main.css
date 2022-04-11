@@ -13,7 +13,7 @@ body {
     font-family: sans-serif;
 }
 
-.notesSidebar {
+.notes__sidebar {
     border-right: 2px solid #dddddd;
     flex-shrink: 0;
     overflow-y: auto;
@@ -21,7 +21,7 @@ body {
     width: 300px;
 }
 
-.notesAdd {
+.notes__add {
     background: #009578;
     border: none;
     border-radius: 7px;
@@ -34,59 +34,59 @@ body {
     width: 100%;
 }
 
-.notesAdd:hover {
+.notes__add:hover {
     background: #00af8c;
 }
 
-.notesListItem {
+.notes__list-item {
     cursor: pointer;
 }
 
-.notesListItemSelected {
+.notes__list-item--selected {
     background: #eeeeee;
     border-radius: 7px;
     font-weight: bold;
 }
 
-.notesSmallTitle,
-.notesSmallUpdated {
+.notes__small-title,
+.notes__small-updated {
     padding: 10px;
 }
 
-.notesSallTitle {
+.notes__small-title {
     font-size: 1.2em;
 }
 
-.notesSmallBody {
+.notes__small-body {
     padding: 0 10px;
 }
 
-.notesSmallUpdated {
+.notes__small-updated {
     color: #aaaaaa;
     font-style: italic;
     text-align: right;
 }
 
-.notesPreview {
+.notes__preview {
     display: flex;
     flex-direction: column;
     padding: 2em 3em;
     flex-grow: 1;
 }
 
-.notesTitle,
-.notesBody {
+.notes__title,
+.notes__body {
     border: none;
     outline: none;
     width: 100%;
 }
 
-.notesTitle {
+.notes__title {
     font-size: 3em;
     font-weight: bold;
 }
 
-.notesBody {
+.notes__body {
     flex-grow: 1;
     font-size: 1.2em;
     line-height: 1.5;

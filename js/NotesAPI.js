@@ -1,6 +1,6 @@
 export default class NotesAPI {
     static getAllNotes() {
-        const notes = JSON.parse(localStorage.getItem("notesappNotes") || "[]");
+        const notes = JSON.parse(localStorage.getItem("notesapp-notes") || "[]");
 
         return notes.sort((a, b) => {
             return new Date(a.updated) > new Date(b.updated) ? -1 : 1;
@@ -22,13 +22,13 @@ export default class NotesAPI {
             notes.push(noteToSave);
         }
 
-        localStorage.setItem("notesappNotes", JSON.stringify(notes));
+        localStorage.setItem("notesapp-notes", JSON.stringify(notes));
     }
 
     static deleteNote(id) {
         const notes = NotesAPI.getAllNotes();
         const newNotes = notes.filter(note => note.id != id);
 
-        localStorage.setItem("notesappNotes", JSON.stringify(newNotes));
+        localStorage.setItem("notesapp-notes", JSON.stringify(newNotes));
     }
 }

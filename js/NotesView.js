@@ -6,19 +6,19 @@ export default class NotesView {
         this.onNoteEdit = onNoteEdit;
         this.onNoteDelete = onNoteDelete;
         this.root.innerHTML = `
-            <div class="notesSidebar">
-                <button class="notesAdd" type="button">Add Note</button>
-                <div class="notesList"></div>
+            <div class="notes__sidebar">
+                <button class="notes__add" type="button">Add Note</button>
+                <div class="notes__list"></div>
             </div>
-            <div class="notesPreview">
-                <input class="notesTitle" type="text" placeholder="New Note...">
-                <textarea class="notesBody">Take Note...</textarea>
+            <div class="notes__preview">
+                <input class="notes__title" type="text" placeholder="New Note...">
+                <textarea class="notes__body">Take Note...</textarea>
             </div>
         `;
 
-        const btnAddNote = this.root.querySelector(".notesAdd");
-        const inpTitle = this.root.querySelector(".notesTitle");
-        const inpBody = this.root.querySelector(".notesBody");
+        const btnAddNote = this.root.querySelector(".notes__add");
+        const inpTitle = this.root.querySelector(".notes__title");
+        const inpBody = this.root.querySelector(".notes__body");
 
         btnAddNote.addEventListener("click", () => {
             this.onNoteAdd();
@@ -40,13 +40,13 @@ export default class NotesView {
         const MAX_BODY_LENGTH = 60;
 
         return `
-            <div class="notesListItem" dataNoteId="${id}">
-                <div class="notesSmallTitle">${title}</div>
-                <div class="notesSmallBody">
+            <div class="notes__list-item" data-note-id="${id}">
+                <div class="notes__small-title">${title}</div>
+                <div class="notes__small-body">
                     ${body.substring(0, MAX_BODY_LENGTH)}
                     ${body.length > MAX_BODY_LENGTH ? "..." : ""}
                 </div>
-                <div class="notesSmallUpdated">
+                <div class="notes__small-updated">
                     ${updated.toLocaleString(undefined, { dateStyle: "full", timeStyle: "short" })}
                 </div>
             </div>
@@ -54,7 +54,7 @@ export default class NotesView {
     }
 
     updateNoteList(notes) {
-        const notesListContainer = this.root.querySelector(".notesList");
+        const notesListContainer = this.root.querySelector(".notes__list");
 
         // Empty list
         notesListContainer.innerHTML = "";
@@ -66,7 +66,7 @@ export default class NotesView {
         }
 
         // Add select/delete events for each list item
-        notesListContainer.querySelectorAll(".notesListItem").forEach(noteListItem => {
+        notesListContainer.querySelectorAll(".notes__list-item").forEach(noteListItem => {
             noteListItem.addEventListener("click", () => {
                 this.onNoteSelect(noteListItem.dataset.noteId);
             });
@@ -82,17 +82,17 @@ export default class NotesView {
     }
 
     updateActiveNote(note) {
-        this.root.querySelector(".notesTitle").value = note.title;
-        this.root.querySelector(".notesBody").value = note.body;
+        this.root.querySelector(".notes__title").value = note.title;
+        this.root.querySelector(".notes__body").value = note.body;
 
-        this.root.querySelectorAll(".notesListItem").forEach(noteListItem => {
-            noteListItem.classList.remove("notesListItemSelected");
+        this.root.querySelectorAll(".notes__list-item").forEach(noteListItem => {
+            noteListItem.classList.remove("notes__list-item--selected");
         });
 
-        this.root.querySelector(`.notesListItem[dataNoteId="${note.id}"]`).classList.add("notesListItemSelected");
+        this.root.querySelector(`.notes__list-item[data-note-id="${note.id}"]`).classList.add("notes__list-item--selected");
     }
 
     updateNotePreviewVisibility(visible) {
-        this.root.querySelector(".notesPreview").style.visibility = visible ? "visible" : "hidden";
+        this.root.querySelector(".notes__preview").style.visibility = visible ? "visible" : "hidden";
     }
 }
